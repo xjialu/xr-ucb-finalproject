@@ -209,13 +209,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.90186906, y: -0.09268288, z: 0.24165502, w: 0.3458973}
+  m_LocalPosition: {x: -0.58, y: 1.14, z: 1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 138.033, y: -30, z: 0}
 --- !u!1001 &743878017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,8 +308,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -330,9 +330,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.45
   far clip plane: 1000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -358,75 +358,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.06118123, y: -0.046158362, z: 0.002832368, w: 0.99705476}
+  m_LocalPosition: {x: -0.775, y: 1, z: -4.566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1474266161
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1784300060926926, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_Name
-      value: House_cat
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.008680874
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.08827713
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071079
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071057
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4749563837637952, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8dd7c108eeb40574899985d78b7ff4d8, type: 3}
+  m_LocalEulerAnglesHint: {x: 7.023, y: -5.301, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
   - {fileID: 705507995}
-  - {fileID: 1474266161}
   - {fileID: 743878017}
