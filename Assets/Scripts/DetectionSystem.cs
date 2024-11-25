@@ -1,11 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class DetectionSystem : MonoBehaviour
 {
     public float detectionAngle = 45f; // Half-angle of the detection cone
-    public float detectionRange = 5f; // Max detection distance
+    public float detectionRange = 20f; // Max detection distance
     public Transform swivelPoint;    // Swiveling pole's origin
     public Transform player;         // Player's position
+    public TextMeshProUGUI detectionText; // Assign via inspector
 
     private bool isDetected = false;
 
@@ -32,6 +34,15 @@ public class DetectionSystem : MonoBehaviour
         if (isDetected)
         {
             Debug.Log("DETECTED");
+            // set detection text to detected and change color to red
+            detectionText.color = Color.red;
+            detectionText.text = "Detected!";
+        }
+        else
+        {
+            // set detection text to not detected and change color to green
+            detectionText.color = Color.green;
+            detectionText.text = "Not Detected";
         }
     }
 
