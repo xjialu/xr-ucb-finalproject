@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - object
+  - PokeInteractor
+  - Object
   layers:
   - Default
   - TransparentFX

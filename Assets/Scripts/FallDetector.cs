@@ -7,7 +7,7 @@ public class FallDetector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object has a Rigidbody (only items can score)
-        if (other.tag == "object")
+        if (other.tag == "Object")
         {
             // log to console about detection
             Debug.Log("Item fell off!");
