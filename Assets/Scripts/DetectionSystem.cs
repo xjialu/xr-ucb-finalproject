@@ -8,14 +8,13 @@ public class DetectionSystem : MonoBehaviour
     public Transform swivelPoint;    // Swiveling pole's origin
     public Transform player;         // Player's position
     public TextMeshProUGUI detectionText; // Assign via inspector
-
-    private bool isDetected = false;
+    public float detectionRadius = 1f;
 
     void OnDrawGizmos()
     {
         if (swivelPoint != null)
         {
-            Gizmos.color = isDetected ? Color.red : Color.green;
+            Gizmos.color = CollisionDetector.isDetected ? Color.red : Color.green;
             Vector3 forward = swivelPoint.forward * detectionRange;
             Gizmos.DrawLine(swivelPoint.position, swivelPoint.position + forward);
 
@@ -31,24 +30,10 @@ public class DetectionSystem : MonoBehaviour
     void Update()
     {
         DetectPlayer();
-        if (isDetected)
-        {
-            Debug.Log("DETECTED");
-            // set detection text to detected and change color to red
-            detectionText.color = Color.red;
-            detectionText.text = "Detected!";
-        }
-        else
-        {
-            // set detection text to not detected and change color to green
-            detectionText.color = Color.green;
-            detectionText.text = "Not Detected";
-        }
     }
 
     void DetectPlayer()
     {
-        isDetected = false;
 
         // Check distance to the player
         Vector3 directionToPlayer = player.position - swivelPoint.position;
@@ -57,20 +42,40 @@ public class DetectionSystem : MonoBehaviour
         if (distanceToPlayer <= detectionRange)
         {
             // Check angle within the detection cone
+
+            // Check angle within the detection cone
             float angle = Vector3.Angle(swivelPoint.forward, directionToPlayer);
             if (angle <= detectionAngle)
             {
                 // Check if the player's poke interactors are touching an object
-                Collider[] hits = Physics.OverlapSphere(player.position, 1f); // Adjust radius
-                foreach (var hit in hits)
+                if (CollisionDetector.isDetected)
                 {
-                    if (hit.CompareTag("Object"))
-                    {
-                        isDetected = true;
-                        break;
-                    }
+                    Debug.Log("DETECTED");
+                    // set detection text to detected and change color to red
+                    detectionText.color = Color.red;
+                    detectionText.text = "Detected!";
                 }
+                else
+                {
+                    // set detection text to not detected and change color to green
+                    detectionText.color = Color.green;
+                    detectionText.text = "Not Detected!";
+                }
+
+
             }
+            else
+            {
+                // set detection text to not detected and change color to green
+                detectionText.color = Color.green;
+                detectionText.text = "Not Detected!";
+            }
+        }
+        else
+        {
+            // set detection text to not detected and change color to green
+            detectionText.color = Color.green;
+            detectionText.text = "Not Detected!";
         }
     }
 }
