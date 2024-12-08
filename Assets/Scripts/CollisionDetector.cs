@@ -4,7 +4,7 @@ using TMPro;
 public class CollisionDetector : MonoBehaviour
 {
     public TextMeshProUGUI touchingText; // Assign via inspector
-    public static bool isDetected = false; // Global flag for detection
+    public static bool isTouching = false; // Global flag for detection
 
     void Update()
     {
@@ -14,7 +14,7 @@ public class CollisionDetector : MonoBehaviour
 
     void DetectCollisions()
     {
-        isDetected = false; // Reset detection flag
+        isTouching = false; // Reset detection flag
 
         // Find all active colliders in the scene
         Collider[] allColliders = FindObjectsOfType<Collider>();
@@ -32,7 +32,7 @@ public class CollisionDetector : MonoBehaviour
                         // Check if these two are touching
                         if (colliderA.bounds.Intersects(colliderB.bounds))
                         {
-                            isDetected = true;
+                            isTouching = true;
                             UpdateText("Touching!", Color.green);
                             return; // Stop checking further if detected
                         }
@@ -42,7 +42,7 @@ public class CollisionDetector : MonoBehaviour
         }
 
         // If no detection, update the text accordingly
-        if (!isDetected)
+        if (!isTouching)
         {
             UpdateText("Not touching!", Color.red);
         }
