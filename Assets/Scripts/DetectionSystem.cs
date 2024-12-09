@@ -89,12 +89,15 @@ public class DetectionSystem : MonoBehaviour
 
         if (distanceToPlayer <= detectionRange)
         {
+
             float angle = Vector3.Angle(swivelPoint.forward, directionToPlayer);
             if (angle <= detectionAngle)
             {
+                // Debug.Log("Player is in range.");
                 // in range and within the detection cone
                 if (CollisionDetector.isTouching)
                 {
+                    // Debug.Log("Player is detected!");
                     isDetected = true;
                     detectionText.color = Color.red;
                     detectionText.text = "Detected!";
@@ -102,16 +105,12 @@ public class DetectionSystem : MonoBehaviour
             }
             else
             {
+                // Debug.Log("Player is not detected.");
                 isDetected = false;
                 detectionText.color = Color.green;
                 detectionText.text = "Not Detected!";
             }
         }
-        else
-        {
-            isDetected = false;
-            detectionText.color = Color.green;
-            detectionText.text = "Not Detected!";
-        }
+
     }
 }
