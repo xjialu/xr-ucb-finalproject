@@ -48,6 +48,11 @@ public class DetectionSystem : MonoBehaviour
         Vector3 leftEdge = Quaternion.Euler(0, -detectionAngle, 0) * forward;
         Vector3 rightEdge = Quaternion.Euler(0, detectionAngle, 0) * forward;
 
+        // Generate forward, left, and right edges
+        lineRenderer.SetPosition(0, swivelPoint.position);
+        lineRenderer.SetPosition(1, swivelPoint.position + leftEdge);
+        lineRenderer.SetPosition(2, swivelPoint.position + rightEdge);
+
         // Generate the positions for the cone
         lineRenderer.SetPosition(0, swivelPoint.position); // Start point
         for (int i = 0; i <= coneResolution; i++)
@@ -97,7 +102,7 @@ public class DetectionSystem : MonoBehaviour
                 // in range and within the detection cone
                 if (CollisionDetector.isTouching)
                 {
-                    // Debug.Log("Player is detected!");
+                    Debug.Log("Player is detected!");
                     isDetected = true;
                     detectionText.color = Color.red;
                     detectionText.text = "Detected!";
@@ -105,7 +110,7 @@ public class DetectionSystem : MonoBehaviour
             }
             else
             {
-                // Debug.Log("Player is not detected.");
+                Debug.Log("Player is not detected.");
                 isDetected = false;
                 detectionText.color = Color.green;
                 detectionText.text = "Not Detected!";

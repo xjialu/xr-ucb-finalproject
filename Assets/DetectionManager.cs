@@ -11,8 +11,10 @@ public class DetectionManager : MonoBehaviour
     public float maxMeterValue = 1.0f; // The maximum value of the meter
 
     private float currentMeterValue = 0.0f; // Tracks the current meter value
+    public GameObject player; // Assign the Player GameObject in the Inspector
+    public Transform teleportTarget; // Assign the TeleportTarget GameObject in the Inspector
+    public ScoreManager scoreManager; // Reference to the ScoreManager
 
-    // Start is called before the first frame update
     void Start()
     {
         if (detectionMeter != null)
@@ -23,7 +25,6 @@ public class DetectionManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         bool isDetected = DetectionSystem.isDetected; // Replace this with your detection logic
@@ -37,25 +38,45 @@ public class DetectionManager : MonoBehaviour
             currentMeterValue -= decreaseSpeed * Time.deltaTime;
         }
 
-        // Clamp the meter value to ensure it stays between 0 and maxMeterValue
         currentMeterValue = Mathf.Clamp(currentMeterValue, 0, maxMeterValue);
 
-        // Update the slider UI
         if (detectionMeter != null)
         {
             detectionMeter.value = currentMeterValue;
         }
 
-        // Check if the meter is fully filled
         if (currentMeterValue >= maxMeterValue)
         {
-            EndGame(); // Call the end game function when the meter is full
+            EndGame();
+        }
+    }
+
+    void Teleport()
+    {
+        if (teleportTarget != null && player != null)
+        {
+            player.transform.position = teleportTarget.position;
+            player.transform.rotation = teleportTarget.rotation; // Optional: Match rotation
+        }
+        else
+        {
+            Debug.LogWarning("Teleport target or player is not assigned.");
         }
     }
 
     void EndGame()
     {
         Debug.Log("Game Over! You were detected!");
-        // Implement your end-game logic here, such as restarting or showing a game over screen
+
+        if (scoreManager != null)
+        {
+            scoreManager.ResetScore();
+        }
+        else
+        {
+            Debug.LogWarning("ScoreManager reference is missing!");
+        }
+
+        Teleport();
     }
 }
