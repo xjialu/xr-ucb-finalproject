@@ -44,6 +44,7 @@ public class CollisionDetector : MonoBehaviour
         // If no detection, update the text accordingly
         if (!isTouching)
         {
+            isTouching = false;
             UpdateText("Not touching!", Color.red);
         }
     }
